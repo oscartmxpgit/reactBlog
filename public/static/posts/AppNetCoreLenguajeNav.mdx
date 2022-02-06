@@ -11,7 +11,9 @@ Oscar Trujillo Morales
 
 [Repositorio en Git](https://github.com/oscartmxpgit/TravelingHabana)
 
-Para establecer la configuración regional y el lenguaje predeterminado que se mostrará en el navegador, accedemos a la clase Startup.cs -que se utiliza entre otras cosas para configurar los servicios de nuestra aplicación, vamos a ConfigureServices y ahí definimos lo siguiente:
+El objetivo de este post es mostrar una forma de establecer la configuración regional y el lenguaje predeterminado con que se mostrarán los componentes de una página *Razor page*, con ASP.NET Core de forma que no sucedan imprevistos como que al usuario de habla hispana se le muestre un input tipo fecha con un formato extraño para él.
+
+Accedemos a la clase Startup.cs -que se utiliza entre otras cosas para configurar los servicios de nuestra aplicación- vamos a ConfigureServices y ahí definimos lo siguiente:
 
 ```
 
