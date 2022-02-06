@@ -1,0 +1,31 @@
+@import 'media';
+
+.worksContainer {
+  display: grid;
+  margin-top: 40px;
+  min-height: 340px;
+  gap: 20px;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.filtersContainer {
+  @media screen and (min-width: $tablet) {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+.filters {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.filter {
+  margin-top: 20px;
+  padding: 5px 10px;
+  font-size: 17px;
+  color: var(--text-color);
+}

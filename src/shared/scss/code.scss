@@ -1,0 +1,598 @@
+pre,
+code span,
+pre code {
+  font-family: 'Fira Code', monospace;
+  font-weight: 400;
+}
+
+:root {
+  --yellow: #e5c07b;
+  --orange: #d19a66;
+  --green: #98c379;
+  --red: #e06b74;
+  --purple: #c678dd;
+  --cyan: #61afef;
+  --sky-blue: #56b6c2;
+  --gray: #5c6370;
+  --text: #abb2bf;
+  --background-code: #0c0d12;
+}
+
+pre code span {
+  color: var(--text);
+}
+pre,
+code[class*='language-'],
+pre[class*='language-'] {
+  --background-selection: #738bdd10;
+  color: var(--text);
+  background-color: var(--background-code);
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  max-width: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Selection */
+code[class*='language-']::-moz-selection,
+code[class*='language-'] *::-moz-selection,
+pre[class*='language-'] *::-moz-selection {
+  background-color: var(--background-selection);
+  color: inherit;
+  text-shadow: none;
+}
+
+code[class*='language-']::selection,
+code[class*='language-'] *::selection,
+pre[class*='language-'] *::selection {
+  background-color: var(--background-selection);
+  color: inherit;
+  text-shadow: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1em;
+  overflow: auto;
+  border-radius: var(--min-radius);
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.2em 0.3em;
+  border-radius: var(--min-radius);
+  white-space: normal;
+}
+
+/* Print */
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+/* My adjusts*/
+.token.parameter,
+.token.interpolation,
+.token.language-regex {
+  color: var(--red);
+}
+.token.regex-delimiter,
+.token.special-escape.escape {
+  color: var(--cyan);
+}
+.token.interpolation .token.interpolation-punctuation.punctuation {
+  color: var(--purple);
+}
+.token.unit {
+  color: var(--red);
+}
+
+.language-jsx .token.property-access,
+.language-jsx .token.script.language-javascript,
+.language-jsx code .token.maybe-class-name {
+  color: var(--red);
+}
+.language-jsx code .token.function .token.maybe-class-name {
+  color: var(--cyan);
+}
+.language-css code .token.hexcode.color,
+.language-css code,
+.language-css code .token.class {
+  color: var(--orange);
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  color: var(--gray);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+  color: var(--text);
+}
+
+.token.class-name,
+.token.constant,
+// .token.number,
+.token.atrule {
+  color: var(--yellow);
+}
+
+.token.attr-name,
+.token.number,
+.token.boolean {
+  color: var(--orange);
+}
+.token.keyword {
+  color: var(--purple);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+  color: var(--red);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+  color: var(--green);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+  color: var(--cyan);
+}
+
+.token.url {
+  color: var(--sky-blue);
+}
+
+/* HTML overrides */
+.token.attr-value > .token.punctuation.attr-equals,
+.token.special-attr > .token.attr-value > .token.value.css {
+  color: var(--text);
+}
+
+/* CSS overrides */
+.language-css .token.selector {
+  color: var(--red);
+}
+
+.language-css .token.property {
+  color: var(--text);
+}
+
+.language-css .token.function,
+.language-css .token.url > .token.function {
+  color: var(--sky-blue);
+}
+
+.language-css .token.url > .token.string.url {
+  color: var(--green);
+}
+
+.language-css .token.important,
+.language-css .token.atrule .token.rule {
+  color: var(--purple);
+}
+
+/* JS overrides */
+.language-javascript .token.operator {
+  color: var(--purple);
+}
+
+/* JSON overrides */
+.language-json .token.operator {
+  color: var(--text);
+}
+
+.language-json .token.null.keyword {
+  color: var(--orange);
+}
+
+/* MD overrides */
+.language-markdown .token.url,
+.language-markdown .token.url > .token.operator,
+.language-markdown .token.url-reference.url > .token.string {
+  color: var(--text);
+}
+
+.language-markdown .token.url > .token.content {
+  color: var(--cyan);
+}
+
+.language-markdown .token.url > .token.url,
+.language-markdown .token.url-reference.url {
+  color: var(--sky-blue);
+}
+
+.language-markdown .token.blockquote.punctuation,
+.language-markdown .token.hr.punctuation {
+  color: var(--gray);
+  font-style: italic;
+}
+
+.language-markdown .token.code-snippet {
+  color: var(--green);
+}
+
+.language-markdown .token.bold .token.content {
+  color: var(--orange);
+}
+
+.language-markdown .token.italic .token.content {
+  color: var(--purple);
+}
+
+.language-markdown .token.strike .token.content,
+.language-markdown .token.strike .token.punctuation,
+.language-markdown .token.list.punctuation,
+.language-markdown .token.title.important > .token.punctuation {
+  color: var(--red);
+}
+
+/* General */
+.token.bold {
+  font-weight: bold;
+}
+
+.token.comment,
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.namespace {
+  opacity: 0.8;
+}
+
+/* Plugin overrides */
+/* Selectors should have higher specificity than those in the plugins' default stylesheets */
+
+/* Show Invisibles plugin overrides */
+.token.token.tab:not(:empty):before,
+.token.token.cr:before,
+.token.token.lf:before,
+.token.token.space:before {
+  color: #abb2bf26;
+  text-shadow: none;
+}
+
+/* Toolbar plugin overrides */
+/* Space out all buttons and move them away from the right edge of the code block */
+div.code-toolbar > .toolbar.toolbar > .toolbar-item {
+  margin-right: 0.4em;
+}
+
+/* Styling the buttons */
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span {
+  background-color: #0c0d12;
+  color: var(--cyan);
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+  cursor: default;
+}
+
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus {
+  color: var(--text);
+}
+
+/* Line Highlight plugin overrides */
+/* The highlighted line itself */
+.line-highlight.line-highlight {
+  background: #99bbff0a;
+}
+
+/* Default line numbers in Line Highlight plugin */
+.line-highlight.line-highlight:before,
+.line-highlight.line-highlight[data-end]:after {
+  background: #3a3f4b;
+  color: var(--text);
+  padding: 0.1em 0.6em;
+  border-radius: 0.3em;
+  box-shadow: 0 2px 0 0 #00000033; /* same as Toolbar plugin default */
+}
+
+/* Match Braces plugin overrides */
+/* Note: Outline colour is inherited from the braces */
+.rainbow-braces .token.token.punctuation.brace-level-1,
+.rainbow-braces .token.token.punctuation.brace-level-5,
+.rainbow-braces .token.token.punctuation.brace-level-9 {
+  color: var(--red);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-2,
+.rainbow-braces .token.token.punctuation.brace-level-6,
+.rainbow-braces .token.token.punctuation.brace-level-10 {
+  color: var(--green);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-3,
+.rainbow-braces .token.token.punctuation.brace-level-7,
+.rainbow-braces .token.token.punctuation.brace-level-11 {
+  color: var(--cyan);
+}
+
+.rainbow-braces .token.token.punctuation.brace-level-4,
+.rainbow-braces .token.token.punctuation.brace-level-8,
+.rainbow-braces .token.token.punctuation.brace-level-12 {
+  color: var(--purple);
+}
+
+/* Diff Highlight plugin overrides */
+/* Taken from https://github.com/atom/github/blob/master/styles/variables.less */
+pre.diff-highlight > code .token.token.deleted:not(.prefix),
+pre > code.diff-highlight .token.token.deleted:not(.prefix) {
+  background-color: #ff526626;
+}
+
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection {
+  background-color: #fb566940;
+}
+
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) *::selection {
+  background-color: #fb566940;
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix),
+pre > code.diff-highlight .token.token.inserted:not(.prefix) {
+  background-color: #1aff5b26;
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection {
+  background-color: #38e06240;
+}
+
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
+  background-color: #38e06240;
+}
+
+.prism-previewer.prism-previewer:before,
+.prism-previewer-gradient.prism-previewer-gradient div {
+  border-color: #262931;
+}
+
+.prism-previewer-color.prism-previewer-color:before,
+.prism-previewer-gradient.prism-previewer-gradient div,
+.prism-previewer-easing.prism-previewer-easing:before {
+  border-radius: 0.3em;
+}
+
+.prism-previewer.prism-previewer:after {
+  border-top-color: #262931;
+}
+
+.prism-previewer-flipped.prism-previewer-flipped.after {
+  border-bottom-color: #262931;
+}
+
+.prism-previewer-angle.prism-previewer-angle:before,
+.prism-previewer-time.prism-previewer-time:before,
+.prism-previewer-easing.prism-previewer-easing {
+  background: #31363f;
+}
+
+/* For angle, this is the positive area (eg. 90deg will display one quadrant in this colour) */
+/* For time, this is the alternate colour */
+.prism-previewer-angle.prism-previewer-angle circle,
+.prism-previewer-time.prism-previewer-time circle {
+  stroke: var(--text);
+  stroke-opacity: 1;
+}
+
+/* Stroke colours of the handle, direction point, and vector itself */
+.prism-previewer-easing.prism-previewer-easing circle,
+.prism-previewer-easing.prism-previewer-easing path,
+.prism-previewer-easing.prism-previewer-easing line {
+  stroke: var(--text);
+}
+
+/* Fill colour of the handle */
+.prism-previewer-easing.prism-previewer-easing circle {
+  fill: transparent;
+}
+
+// LANGUAGE PREFS
+
+// SCSS PREFS
+.language-scss code .token.variable,
+.language-scss code .token.property .token.variable {
+  color: var(--red);
+}
+.language-scss code .token.hexcode.color,
+.language-scss code .token.color,
+.language-scss code .token.selector,
+.language-scss code {
+  color: var(--orange);
+}
+.language-scss code .token.property {
+  color: var(--text);
+}
+// TYPESCRIPT PREFS
+.language-typescript code span.token.builtin {
+  color: var(--yellow);
+}
+// HTML PREFS
+
+.language-html .token.attr-name {
+  color: var(--orange);
+}
+
+// MARKDOWN PREFS
+
+.language-markdown .token.bold .token.punctuation {
+  color: var(--orange);
+}
+
+/* Hovering over a linkable line number (in the gutter area) */
+/* Requires Line Numbers plugin as well */
+pre[id].linkable-line-numbers.linkable-line-numbers
+  span.line-numbers-rows
+  > span:hover:before {
+  background-color: #99bbff0a;
+}
+
+/* Line Numbers and Command Line plugins overrides */
+/* Line separating gutter from coding area */
+.line-numbers.line-numbers .line-numbers-rows,
+.command-line .command-line-prompt {
+  border-right-color: #abb2bf26;
+}
+
+/* Stuff in the gutter */
+.line-numbers .line-numbers-rows > span:before,
+.command-line .command-line-prompt > span:before {
+  color: var(--text);
+}
+
+/// REAL LINE NUMBERS
+
+pre[class*='language-'].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*='language-'].line-numbers > code {
+  position: relative;
+  white-space: inherit;
+}
+pre.language-scss span.token.color,
+pre.language-css span.token.color,
+pre.language-html span.token.class,
+pre.language-html span.token.color {
+  color: var(--orange);
+}
+
+// line numbers
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid var(--text);
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span::before {
+  content: counter(linenumber);
+  color: var(--text);
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+pre[data-file] {
+  position: relative;
+  padding-top: 3em;
+  &::before {
+    content: attr(data-file);
+    padding: 0.5em 1.5em;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    position: absolute;
+    color: var(--icon);
+    top: 0;
+    right: 0px;
+    width: 100%;
+    opacity: 1;
+  }
+}
+// inline-color
+
+span.inline-color {
+  display: block;
+  height: 120%;
+  width: 120%;
+}
+span.inline-color-wrapper {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=);
+  background-position: center;
+  background-size: 110%;
+  display: inline-block;
+  height: 1.333ch;
+  width: 1.333ch;
+  margin: 0 0.333ch;
+  box-sizing: border-box;
+  border: 1px solid #d5d5d5;
+  outline: 1px solid #00000080;
+  overflow: hidden;
+}
+
+// code-link
+.token a {
+  color: var(--green);
+}
+.line-highlight {
+  position: absolute;
+}
+
+div.toolbar {
+  margin: 9px !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.div.code-toolbar > .toolbar.toolbar > .toolbar-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.toolbar-item {
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+}

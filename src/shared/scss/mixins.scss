@@ -1,0 +1,20 @@
+@import 'animations';
+$duraton: 0.25s;
+
+@mixin pulse {
+  animation-name: pulse;
+  animation-timing-function: ease;
+  animation-duration: $duraton;
+}
+@mixin animation($animation-name) {
+  animation-name: $animation-name;
+  animation-timing-function: ease;
+  animation-duration: $duraton;
+}
+@mixin wrap($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

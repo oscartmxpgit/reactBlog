@@ -1,0 +1,89 @@
+@import 'mixins';
+@import 'media';
+
+.mdContainer {
+  --font-size: 20px;
+  :not(pre) > code {
+    color: var(--primary-color);
+    background-color: var(--background-selection);
+    padding: 0px 6px;
+    border-radius: var(--min-radius);
+  }
+  p {
+    font-size: var(--font-size);
+    a {
+      position: relative;
+      color: var(--primary-color);
+      &:hover {
+        &::after {
+          display: block;
+        }
+      }
+      &::after {
+        @include pulse;
+        display: none;
+        position: absolute;
+        top: -30px;
+        left: -50%;
+        content: attr(title) ' 🌐';
+        min-inline-size: max-content;
+        padding: 2px 6px;
+        border: solid 1px var(--border-color);
+        background-color: var(--background-color);
+        border-radius: var(--min-radius);
+      }
+    }
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    h1 {
+      font-size: 35px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 25px;
+    }
+  }
+  h1,
+  h2,
+  h3 {
+    a {
+      font-weight: 700;
+      &:hover {
+        &::after {
+          content: '🔗';
+        }
+      }
+    }
+  }
+  > * {
+    margin: 30px 0;
+  }
+  .Code {
+    position: relative;
+  }
+  li {
+    list-style-type: inherit;
+    list-style-position: inside;
+    margin-bottom: 5px;
+    font-size: var(--font-size);
+    display: flex;
+    &::marker {
+      display: flex;
+      align-self: center;
+      color: var(--primary-color);
+      font-size: var(--font-size);
+      font-weight: 600;
+    }
+  }
+}

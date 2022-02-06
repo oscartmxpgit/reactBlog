@@ -1,0 +1,10 @@
+@import 'media';
+
+.admin{
+    display: grid;
+    @media screen and (min-width: $tablet) {
+        grid-template-columns: .2fr 1fr;
+    }
+}
+
+

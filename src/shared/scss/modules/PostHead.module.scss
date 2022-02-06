@@ -1,0 +1,41 @@
+.author {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  margin-right: 10px;
+}
+.image {
+  margin-bottom: 20px;
+}
+.img {
+  border-radius: 50%;
+}
+.title {
+  font-size: 45px !important;
+  margin-bottom: 20px;
+}
+.name {
+  font-size: 18px !important;
+}
+.date {
+  time {
+    color: var(--text-color);
+    font-weight: 500;
+  }
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  .tag {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--background-selection);
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

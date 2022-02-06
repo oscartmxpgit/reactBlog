@@ -1,0 +1,66 @@
+@import 'media';
+:root {
+  --border-color: #ccc;
+  --color-button: var(--text-color);
+  --border-color-focus: var(--primary-color);
+  --primary-color: #2b63cc;
+  --titles-color: #141e31;
+  --text-color: #464c5a;
+  --text-negative: var(--background-color);
+  // backgrounds
+  --background-color: #f8f8f8;
+  --background-button: #ececec;
+  --background-button-hover: #e2e2e2;
+  --background-selection: #0011ff10;
+  --background-navbar: #f8f8f8dc;
+  --background-card: #efefef;
+  --background-modal: #000000dc;
+  // statics
+  --white: #f8f8f8;
+  --black: #000000;
+  // metrics
+  --min-radius: 8px;
+  --main-container: 10px;
+  --md-container: 10px;
+  --admin-container: 10px;
+  --navbar-height: 65px;
+  // shadows
+  --nav-shadow: 0px 10px 29px -5px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.068);
+  // animations
+  --transition-duration: 0.26s;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color: #1d1d1d;
+    --border-color-focus: var(--primary-color);
+    --primary-color: #2b63cc;
+    --titles-color: #eeeeee;
+    --text-color: #afafaf;
+    --text-negative: var(--background-color);
+    // backgrounds
+    --background-color: #000000;
+    --background-button: #111111;
+    --background-button-hover: #1a1a1a;
+    --background-selection: #6670ff27;
+    --background-navbar: #000000dc;
+    --background-card: #0f0f0f;
+    --background-modal: #000000dc;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  :root {
+    --main-container: 50px;
+    --md-container: 100px;
+    --admin-container: 00px;
+    --navbar-height: 100px;
+  }
+}
+@media screen and (min-width: $desktop) {
+  :root {
+    --main-container: 100px;
+    --md-container: 250px;
+  }
+}

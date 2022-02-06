@@ -1,0 +1,26 @@
+@import 'media';
+
+.works {
+  display: grid;
+  gap: 20px;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.searchBox {
+  margin: 30px auto;
+  @media screen and (min-width: $tablet) {
+    width: 60%;
+  }
+}
+.title {
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  @media screen and (min-width: $tablet) {
+    font-size: 60px;
+  }
+}

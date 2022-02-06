@@ -1,0 +1,74 @@
+---
+title: 'Busqueda dinámica con Angular'
+tags: ['Angular','pipes']
+desc: 'Busqueda dinámica con Angular utilizando pipes.'
+date: '2022-02-05'
+image: '/static/images/ngPipes.png'
+---
+Oscar Trujillo Morales
+
+
+[Repositorio en Git](https://github.com/oscartmxpgit/B-squeda-en-angular-utilizando-ng2-search-filter)
+
+Instala el paquete **ng2-search-filter**:
+
+```
+npm i ng2-search-filter --save
+
+```
+
+Importa Ng2SearchPipeModule en AppModule.
+Incluyamos también, dentro de imports, FormsModule para poder utilizar luego el atributo ng-model.
+
+```
+...
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    Ng2SearchPipeModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+  ...
+}
+
+```
+En el componente app.component.ts
+```
+    import { Component } from `@angular/core`;
+
+    @Component({
+      selector: `app-root`,
+      templateUrl: `./app.component.html`,
+      styleUrls: [`./app.component.scss`]
+    })
+    export class AppComponent {
+      filterTerm: any ;
+      userRecords = [{
+        `id`: 1,
+        `name`: `Oscar`,
+        `email`: `oscar@gmail.com`
+      },
+      {
+        `id`: 2,
+        `name`: `Ulises`,
+        `email`: `ulises@gmail.com`
+      },
+      {
+        `id`: 3,
+        `name`: `Carlitos`,
+        `email`: `carlos@gmail.com`
+      },
+
+  ]
+}
+
+```
+Modo de uso, en la vista
+
+```
+...input type=`text` class=`form-control`
+      placeholder=`Buscar...` [(ngModel)]=`filterTerm`>
+...
+```

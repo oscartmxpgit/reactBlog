@@ -1,0 +1,71 @@
+---
+title: 'Cargar imagen guardada en la base de datos con ASP.NET Core Razor Pages'
+tags: ["ASP.NET Core","Imagen en la base de datos"]
+desc: 'Cargar imagen guardada en la base de datos con ASP.NET Core Razor Pages'
+date: '2022-01-29'
+image: '/static/images/netcoreRazor.png'
+---
+# Cargar imagen guardada en la base de datos con ASP.NET Core Razor Pages
+
+Oscar Trujillo Morales
+
+[Repositorio en Git](https://github.com/oscartmxpgit/TravelingHabana)
+
+En la base de datos tenemos lo siguiente
+
+```
+CREATE TABLE [dbo].[Usuarios](
+	...
+	[nombre] [varchar](100) NOT NULL,
+	[foto] [varbinary](max) NULL,
+	[correo] [varchar](50) NULL,
+    ...
+```
+Generamos una clase auxiliar que contendrá métodos estáticos de utilidades
+
+```
+using Microsoft.AspNetCore.Mvc;
+
+namespace TUNAMESPACE.Helper
+{
+    public class Utilidades
+    {
+        public static  string DevuelveFoto(
+            IUrlHelper Url, byte[] photo)
+        {
+            string imageSrc = string.Empty;
+            if (photo != null)
+            {
+                imageSrc = string.Format(`data:image;base64,{0}`,
+                System.Convert.ToBase64String(photo));
+            }
+            else
+            {
+                imageSrc = Url.Content
+                (`~/Resources/generic-user.jpg`);
+            }
+
+            return imageSrc;
+        }
+    }
+}
+```
+
+En la vista definimos lo siguiente:
+
+```
+@{
+    byte[] photo = @item.Foto;
+    string imageSrc =
+    Utilidades.DevuelveFoto(Url, photo);
+}
+
+<img src=`@imageSrc`
+style=`max-width: 180px;max-height: 150px;
+text-align:center` alt=`@item.Nombre` >
+
+@*<img src=`data:image/jpg;base64,
+    @(Convert.ToBase64String(item.Foto))` alt=`@item.Nombre` /> *@
+
+
+```

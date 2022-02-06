@@ -1,0 +1,12 @@
+@import 'media';
+
+.blog {
+  display: grid;
+  gap: 20px;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 0.4fr;
+  }
+}
+.title {
+  font-size: 50px;
+}

@@ -1,0 +1,30 @@
+@import 'media';
+
+.hero {
+  display: flex;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 0.4fr;
+    height: calc(80vh - var(--navbar-height));
+  }
+}
+.info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.say {
+  font-size: 40px;
+}
+
+.title {
+  font-size: 58px;
+  @media screen and (min-width: $tablet) {
+    font-size: 85px;
+  }
+}
+
+.text {
+  font-size: 20px;
+}

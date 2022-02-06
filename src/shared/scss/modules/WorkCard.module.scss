@@ -1,0 +1,56 @@
+@import 'mixins';
+
+.card {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  border-radius: var(--min-radius);
+  overflow: hidden;
+  cursor: pointer;
+  @include pulse;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  border-radius: var(--min-radius);
+  img {
+    object-fit: cover;
+    border-radius: var(--min-radius);
+    height: 100%;
+  }
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  height: 150px;
+  width: 80%;
+  right: 0;
+  padding: 10px;
+  background-color: var(--background-color);
+  border-radius: var(--min-radius);
+  box-shadow: var(--card-shadow);
+  border: solid 1px var(--border-color);
+}
+.description {
+  @include wrap(2);
+}
+
+.title {
+  @include wrap(1);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.stack {
+  margin-top: 10px;
+  display: flex;
+}
+.stackItem {
+  margin-right: 10px;
+  font-size: 25px;
+}

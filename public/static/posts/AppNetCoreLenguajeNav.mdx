@@ -1,0 +1,35 @@
+---
+title: 'Configuración regional del navegador con ASP.NET Core'
+tags: ['ASP.NET Core','Configuración regional']
+desc: 'Configuración regional del navegador con ASP.NET Core.'
+date: '2022-01-29'
+image: '/static/images/chrome.jpg'
+---
+# Configuración regional del navegador con ASP.NET Core
+
+Oscar Trujillo Morales
+
+[Repositorio en Git](https://github.com/oscartmxpgit/TravelingHabana)
+
+Para establecer la configuración regional y el lenguaje predeterminado que se mostrará en el navegador, accedemos a la clase Startup.cs -que se utiliza entre otras cosas para configurar los servicios de nuestra aplicación, vamos a ConfigureServices y ahí definimos lo siguiente:
+
+```
+
+services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(context =>
+    {
+        var userLangs = context.Request.Headers[`Accept-Language`].ToString();
+        var firstLang = userLangs.Split(`,`).FirstOrDefault();
+        var defaultLang = string.IsNullOrEmpty(firstLang) ? `es` : firstLang;
+        return Task.FromResult(new ProviderCultureResult(defaultLang, defaultLang));
+    }));
+});
+```
+
+De manera que ahora la cabecera Accept-Language tiene el siguiente valor
+
+```
+Accept-Language:es,en-US;q=0.9,en;q=0.8,es-US;q=0.7,ru-MD;q=0.6,ru;q=0.5,el-GR;q=0.4,el;q=0.3
+
+```

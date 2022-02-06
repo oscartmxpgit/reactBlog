@@ -1,0 +1,79 @@
+---
+title: 'Diseño de un bot de Telegram con Google Apps Script'
+tags: ["google apps ascript","javascript","Telegram chatBot"]
+desc: 'Ejemplo de cómo crear un bot de Telegram con Google Apps Script.'
+date: '2022-02-05'
+image: '/static/images/chatbot-guide-banner.svg'
+---
+# Diseño de Bot
+
+Diseño de un bot de Telegram con Google Apps Script
+
+Oscar Trujillo Morales
+
+Resumen del tutorial que podeís encontrar en
+[Telegram Bot Tutorial: How to connect your Telegram Bot to a Google Spreadsheet (Apps Script)
+](https://www.youtube.com/watch?v=mKSXd_od4Lg&t=252s)
+
+### Definición de constantes
+
+Obtener el token de tu bot, la dirección de la App Web que se despliega y la ID de la hoja de cálculo
+
+```
+var token = `BOT TOKEN`; //
+var telegramUrl = `https://api.telegram.org/bot` + token;
+
+var webAppUrl = `https://script.google.com/macros/s/GOOGLE WEB APP ADDRESS/exec`;
+var ssId = `ID OF YOUR SPREADSHEET`;
+
+```
+
+###  Conectar nuestro Script de Google con el bot Telegram
+
+```
+function getMe() {
+  var url = telegramUrl + `/getMe`;
+  var response = UrlFetchApp.fetch(url);
+  Logger.log(response.getContentText());
+}
+
+```
+
+###  Establecer Webhook
+
+```
+function setWebhook() {
+  var url = telegramUrl + `/setWebhook?url=` + webAppUrl;
+  var response = UrlFetchApp.fetch(url);
+}
+
+```
+
+### Función para enviar contenido a Telegram
+
+```
+function sendText(chatId, text, keyBoard) {
+  var data = {
+    method: `post`,
+    payload: {
+      method: `sendMessage`,
+      chat_id: String(chatId),
+      text: text,
+      parse_mode: `HTML`,
+      reply_markup: JSON.stringify(keyBoard),
+    },
+  };
+  UrlFetchApp.fetch
+    (`https://api.telegram.org/bot` + token + `/`, data);
+}
+```
+
+
+### Respuesta básica a mensajes del usuario
+
+```
+function doPost(e) {
+  return HTMLService.createHtmlOutput(`Hola!`);
+}
+```
+

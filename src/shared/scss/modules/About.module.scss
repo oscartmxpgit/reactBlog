@@ -1,0 +1,47 @@
+@import 'media';
+
+.title {
+  font-size: 60px;
+}
+.sectionContent {
+  display: flex;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stat {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.text {
+  font-size: 20px;
+  line-height: 1.6;
+}
+.button {
+  background-color: #008CBA;
+  color: black;
+  border: 2px solid white;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  .link {
+    margin-right: 15px;
+    font-size: 30px;
+    color: var(--titles-color);
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}

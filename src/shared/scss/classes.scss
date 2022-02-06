@@ -1,0 +1,135 @@
+@import 'mixins';
+
+// Containers
+.mainContainer,
+.mdContainer,
+.adminContainer {
+  position: relative;
+  width: 100%;
+}
+.mainContainer {
+  padding: 0 var(--main-container);
+}
+.mdContainer {
+  padding: 0 var(--md-container);
+}
+.adminContainer {
+  padding: 0 var(--admin-container);
+}
+
+// Buttons
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+// icons
+
+.vicon,
+svg {
+  display: block;
+  height: 1em;
+  width: 1em;
+  fill: currentcolor;
+  stroke: currentcolor;
+}
+.icon {
+  display: flex;
+  width: 1em;
+  height: 1em;
+  contain: strict;
+  box-sizing: content-box !important;
+  fill: currentColor;
+}
+.vicon-fill-none {
+  fill: none;
+}
+
+// global styles
+
+.title {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 60px 0;
+  @media screen and (min-width: $tablet) {
+    font-size: 60px;
+    text-align: center;
+  }
+}
+// Forms
+
+.formGroup {
+  --error-color: #fc5555;
+  --success-color: #49f591;
+  margin-bottom: 10px;
+  input,
+  textarea {
+    margin-top: 10px;
+  }
+}
+
+.e {
+  color: var(--error-color);
+}
+// modal
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-modal);
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalContainer {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--background-card);
+  border-radius: var(--min-radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+  overflow: hidden;
+  @include animation(popup);
+}
+.modalBody {
+  padding: 20px 0;
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  button {
+    margin-left: 10px;
+  }
+}
+
+// TOAST
+
+.toast {
+  position: fixed;
+  top: 30px;
+  right: 10px;
+  // left: 0;
+  z-index: 99999;
+  padding: 10px;
+  background-color: var(--background-toast);
+  border-radius: var(--min-radius);
+  box-shadow: var(--card-shadow);
+  @include animation(pulse);
+  --success: #00a868;
+}

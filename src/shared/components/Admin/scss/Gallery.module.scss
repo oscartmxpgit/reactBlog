@@ -1,0 +1,19 @@
+@import 'media';
+
+.galleryContent {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.galleryItemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 5px;
+}

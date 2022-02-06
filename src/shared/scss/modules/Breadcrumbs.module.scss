@@ -1,0 +1,36 @@
+@import 'mixins';
+.list {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: var(--min-radius);
+  background-color: var(--background-card);
+  width: fit-content;
+}
+.item {
+  cursor: pointer;
+  position: relative;
+  padding-right: 25px;
+  display: flex;
+  align-items: center;
+  &::after {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '→';
+    font-weight: 800;
+    font-size: 1.3em;
+    line-height: 0;
+    color: var(--text-color);
+  }
+  &:last-child {
+    padding-right: 0;
+    &::after {
+      content: none;
+    }
+  }
+  a {
+    @include wrap(1);
+  }
+}

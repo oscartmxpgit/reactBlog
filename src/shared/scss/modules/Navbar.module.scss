@@ -1,0 +1,92 @@
+@import 'media';
+@import 'mixins';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: var(--navbar-height);
+  padding: 0 var(--main-container);
+  background-color: var(--background-navbar);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+.nav {
+  display: none;
+  padding: 10px;
+  position: fixed;
+  background-color: var(--background-color);
+  width: 100%;
+  top: var(--navbar-height);
+  left: 0;
+  z-index: 1000;
+  box-shadow: var(--nav-shadow);
+  border-radius: var(--min-radius);
+  @include pulse;
+  &.open {
+    display: block;
+  }
+  @media screen and (min-width: $tablet) {
+    position: inherit;
+    display: block;
+    width: auto;
+    box-shadow: none;
+    background-color: transparent;
+    top: inherit;
+    animation: none;
+    .navList {
+      display: flex;
+      .navItem {
+        margin-left: 20px;
+        margin-bottom: 0;
+        .navLink {
+          padding: 6px 10px;
+        }
+      }
+    }
+  }
+}
+.navItem {
+  margin-bottom: 10px;
+  border-radius: var(--min-radius);
+  &:hover,
+  &:active,
+  &:focus,
+  &.on {
+    background-color: var(--background-button);
+    .navLink {
+      color: var(--primary-color);
+    }
+  }
+}
+.navLink {
+  display: block;
+  padding: 15px 10px;
+}
+.menu {
+  line-height: 0;
+  color: var(--titles-color);
+  width: 50px;
+  height: 50px;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-button);
+  color: var(--titles-color);
+  border-radius: var(--min-radius);
+  cursor: pointer;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+.logo {
+  display: flex;
+  height: 100%;
+  .img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}

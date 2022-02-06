@@ -1,0 +1,46 @@
+@import 'media';
+
+.formBox {
+  display: grid;
+  gap: 10px;
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 0.4fr;
+  }
+}
+.contentBox {
+  height: 100%;
+  @media screen and (min-width: $tablet) {
+    grid-row: 1;
+  }
+}
+.content {
+  height: 500px;
+  max-height: 500px;
+  font-size: 18px;
+  @media screen and (min-width: $tablet) {
+    height: 100%;
+  }
+}
+
+.data {
+  @media screen and (min-width: $tablet) {
+    grid-column: 2 / 3;
+  }
+}
+.image {
+  border: solid 1px var(--border-color) !important;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    &:hover {
+      background-color: var(--titles-color);
+    }
+  }
+}
