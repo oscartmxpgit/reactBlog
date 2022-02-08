@@ -1,0 +1,93 @@
+---
+title: 'Barra lateral con Angular Material'
+tags: ["angular material","navbar"]
+desc: 'Barra lateral para nuestro proyecto de Angular, con la librería Material'
+date: '2022-02-08'
+image: '/static/images/ngMaterial.jpg'
+---
+
+Oscar Trujillo Morales
+
+[El código se encuentra disponible en github](https://github.com/oscartmxpgit/ngMinistry)
+
+### Pasos previos
+
+Instalación del paquete Angular Material
+npm install --save @angular/material
+
+Y lo añadimos a nuestro proyecto con este comando
+ng add @angular/material
+
+### Módulo Dashboard
+
+ Crearemos el componente que contendrá un grupo de código cohesivo con todo lo relacionado con la navegación. Este se integra luego con los otros módulos de nuestro proyecto
+
+ng g m dashboard
+
+Configuramos las rutas en app-routing.module, de manera que se carguen las rutas que tenemos en nuestro nuevo módulo
+```
+const routes: Routes = [
+  {
+    path: ``,
+    loadChildren: () => import(`./dashboard/dashboard.module`).then(m => m.DashboardModule)
+  },
+  {
+    path: `**`,
+    redirectTo: ``,
+    pathMatch: `full`
+  }
+];
+```
+
+Creamos el archivo que contendrá las rutas del dashboard
+
+```
+const routes: Routes = [
+  {
+    path: ``,
+    component: WrapperComponent,
+    children: [
+      {
+        path: `dashboard`,
+        component: DashboardComponent
+      },
+      {
+        path: `inicio`,
+        component: HomeComponent
+...
+```
+
+A continuación, generamos los componentes de nuestra aplicación, dentro de dashboard
+
+### Wrapper
+
+Este componente será el envoltorio de nuestro navbar
+
+```
+      <mat-list-item [routerLink]=`dashboard`>
+        <mat-icon mat-list-icon >home</mat-icon>
+        <span *ngIf=`isExpanded`>Dashboard</span>
+      </mat-list-item>
+```
+
+Y, por último, definimos los estilos de wrapper component
+```
+mat-sidenav-container {
+  height: 100%;
+  mat-sidenav {
+    mat-nav-list {
+      .chevron-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+        right: 0;
+        float: right;
+        position: absolute;
+      }
+
+      .chevron-button.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+```
