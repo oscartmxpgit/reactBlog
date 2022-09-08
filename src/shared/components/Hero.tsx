@@ -9,7 +9,7 @@ const Hero = () => {
         <p className={styles.text}>
           👋MSc. Ing. Oscar Trujillo Morales<br />
 
-          👀 Estoy interesado en el Desarrollo Web. 🌱 Actualmente estoy cursando un Máster en la materia<br />
+          👀 Estoy interesado en el Desarrollo Web. 🌱 Soy Ing. Informático y tengo un Máster en Desarrollo Web<br />
           💭 Me gustaría a colaborar en nuevos proyectos<br />
           📫 Puedes contactarme  <a href="mailto:oscar.trujillo1985@gmail.com">oscar.trujillo1985@gmail.com</a><br /><br />
         </p>
